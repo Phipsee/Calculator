@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
     EditText inputDividend;
     EditText inputDivisor;
     TextView outputResult;
-    TextView labelResult;
 
 
     @Override
@@ -20,31 +19,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        inputDivisor = (EditText) findViewById(R.id.input_divisor);
+        inputDividend = (EditText) findViewById(R.id.intput_dividend);
+        outputResult = (TextView) findViewById(R.id.txtView_output);
     }
 
-    public void setResultVisibility(boolean visibel) {
-        if (visibel) {
-            outputResult.setVisibility(View.VISIBLE);
-            labelResult.setVisibility(View.VISIBLE);
-        } else {
-            outputResult.setVisibility(View.INVISIBLE);
-            labelResult.setVisibility(View.INVISIBLE);
-        }
-    }
 
     public void divide(View view){
         String dividend = inputDividend.getText().toString();
         String divisor = inputDivisor.getText().toString();
 
-        if(dividend == "" || divisor == ""){
+        if (dividend.equals("") || divisor.equals("")) {
+            outputResult.setText("Please enter a valid value");
+        }
+        else if(dividend.equals("0")){
+            outputResult.setText("Can't divide through null");
+        }else{
 
+            double dividendNumber = Double.parseDouble(dividend);
+            double divisorNumber = Double.parseDouble(divisor);
+
+            String result = String.valueOf((dividendNumber/divisorNumber));
+            outputResult.setText(result);
         }
 
-
-        setResultVisibility(true);
-    }
-
-    public void sendErrorMessage(String msg){
 
     }
 }
