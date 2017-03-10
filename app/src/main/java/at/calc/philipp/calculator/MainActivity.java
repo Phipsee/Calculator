@@ -20,10 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        labelResult = (TextView) findViewById(R.id.txtView_resultLabel);
-        outputResult = (TextView) findViewById(R.id.txtView_result);
-        inputDividend = (EditText) findViewById(R.id.input_dividend);
-        inputDivisor = (EditText) findViewById(R.id.input_divisor);
     }
 
     public void setResultVisibility(boolean visibel) {
@@ -44,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
-
-        double result = dividend / divisor;
-
-        outputResult.setText(String.valueOf(result));
 
         setResultVisibility(true);
     }
