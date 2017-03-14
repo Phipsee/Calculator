@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     EditText inputDividend;
     EditText inputDivisor;
     TextView outputResult;
-
+    private  InputMethodManager imm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             outputResult.setText(result);
         }
 
-        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
     }
